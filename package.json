@@ -1,0 +1,45 @@
+{
+  "description": "Webcomponent demo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milieuinfo/webcomponent-demo.git"
+  },
+  "homepage": "https://github.com/milieuinfo/webcomponent-demo#readme",
+  "name": "webcomponent-demo",
+  "version": "0.0.1",
+  "directories": {
+    "test": "test",
+    "demo": "demo"
+  },
+  "scripts": {
+    "clean": "rm -rf build node_modules build bower_components etc node",
+    "build": "npm run build:demo",
+    "build:demo": "npm run copy && polymer analyze *.js > analysis.json",
+    "copy": "npm run copy:webcomponent && npm run copy:demo",
+    "copy:webcomponent": "copyfiles -f node_modules/**/vo*.js .",
+    "copy:demo": "copyfiles -f node_modules/**/demo/vo*.html ./demo"
+  },
+  "publishConfig": {
+    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
+  },
+  "bugs": {
+    "url": "https://github.com/milieuinfo/webcomponent-demo/issues"
+  },
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0"
+  },
+  "main": "index.html",
+  "dependencies": {
+    "@polymer/iron-component-page": "4.0.1",
+    "@polymer/iron-demo-helpers": "3.0.2",
+    "@webcomponents/webcomponentsjs": "2.1.3",
+    "copyfiles": "^2.1.0",
+    "vo-font": "milieuinfo/webcomponent-vo-font",
+    "vo-footer": "milieuinfo/webcomponent-vo-footer",
+    "vo-header": "milieuinfo/webcomponent-vo-header",
+    "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo#v1.0.0"
+  }
+}
