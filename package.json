@@ -45,6 +45,7 @@
     "vo-footer": "milieuinfo/webcomponent-vo-footer",
     "vo-header": "milieuinfo/webcomponent-vo-header",
     "vo-buildinfo": "milieuinfo/webcomponent-vo-buildinfo",
+    "vodomg-litelement": "milieuinfo/webcomponent-vodomg-litelement",
     "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo"
   }
 }
