@@ -15,6 +15,7 @@
     "clean": "rm -rf build node_modules build bower_components etc node",
     "build": "npm run build:demo",
     "build:demo": "npm run copy && polymer analyze *.js > analysis.json",
+    "delete": "del 'node_modules/**/readme.md'",
     "copy": "npm run copy:webcomponent && npm run copy:demo",
     "copy:webcomponent": "copyfiles -f node_modules/**/vo*.js .",
     "copy:demo": "copyfiles -f node_modules/**/demo/vo*.html ./demo"
@@ -41,6 +42,6 @@
     "vo-font": "milieuinfo/webcomponent-vo-font",
     "vo-footer": "milieuinfo/webcomponent-vo-footer",
     "vo-header": "milieuinfo/webcomponent-vo-header",
-    "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo#v1.0.0"
+    "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo"
   }
 }
