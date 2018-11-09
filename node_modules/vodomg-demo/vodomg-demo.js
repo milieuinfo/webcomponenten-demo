@@ -1,5 +1,5 @@
-import { PolymerElement, html } from '@polymer/polymer';
-import '@polymer/iron-component-page';
+import { PolymerElement, html } from './assets/@polymer/polymer/polymer-element.js';
+import './assets/@polymer/iron-component-page/iron-component-page.js';
 
 class VodomgDemo extends PolymerElement {
     static get is() { return 'vodomg-demo'; }

@@ -1,4 +1,4 @@
-import { LitElement, html } from "../../node_modules/vodomg-litelement/@polymer/lit-element/lit-element.js";
+import { LitElement, html } from "../node_modules/vodomg-litelement/@polymer/lit-element/lit-element.js";
 import '../../node_modules/vo-merklogo/vo-merklogo.js';
 
 /**
