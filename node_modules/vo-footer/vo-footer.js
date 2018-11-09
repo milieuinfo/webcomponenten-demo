@@ -12,9 +12,9 @@ import '../../node_modules/vo-merklogo/vo-merklogo.js';
  * Custom property | Description | Default
  * ----------------|-------------|----------
  * `--vo-footer-background` | de footer achtergrondkleur | `none`
- * `--vo-footer-color` | de tekst kleur| `rgb(184, 184, 184)`
- * `--vo-footer-a-color` | de link tekst kleur| `rgb(184, 184, 184)`
- * `--vo-footer-a-hover-color` | de link zweef tekst kleur| `white`
+ * `--vo-footer-color` | de tekst kleur | `rgb(184, 184, 184)`
+ * `--vo-footer-a-color` | de link tekst kleur | `rgb(184, 184, 184)`
+ * `--vo-footer-a-hover-color` | de link zweef tekst kleur | `white`
  *
  * @customElement
  * @polymer

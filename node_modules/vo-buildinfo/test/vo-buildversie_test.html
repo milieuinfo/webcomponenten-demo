@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+		<title>vo-buildversie test</title>
+
+		<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<script src="../node_modules/wct-browser-legacy/browser.js"></script>
+	</head>
+	<body>
+
+		<test-fixture id="vo-buildversie-fixture">
+			<template>
+				<vo-buildversie></vo-buildversie>
+			</template>
+		</test-fixture>
+
+		<script type="module">
+			import '../vo-buildversie';
+
+			suite('vo-buildversie', () => {
+				const should = chai.should();
+
+				test('toont de build versie en het build tijdstip', (done) => {
+					const element = fixture('vo-buildversie-fixture');
+					let versie = '1.0.0';
+					let tijdstip = 'vandaag';
+					element.versie = versie;
+					element.tijdstip = tijdstip;
+					flush(() => {
+						const versieElement = element.shadowRoot.querySelector('#versie_container');
+						const versieLabelElement = versieElement.querySelector('#versie_label');
+						const versieTekstElement = versieElement.querySelector('#versie');
+						const tijdstipElement = element.shadowRoot.querySelector('#tijdstip_container');
+						const tijdstipLabelElement = tijdstipElement.querySelector('#tijdstip_label');
+						const tijdstipTekstElement = tijdstipElement.querySelector('#tijdstip');
+						
+						should.exist(versieElement);
+						should.exist(versieLabelElement);
+						assert.equal(versieLabelElement.textContent, 'Versie: ');
+						should.exist(versieTekstElement);
+						assert.equal(versieTekstElement.textContent, versie);
+
+						should.exist(tijdstipElement);
+						should.exist(tijdstipLabelElement);
+						assert.equal(tijdstipLabelElement.textContent, 'Tijdstip: ');
+						should.exist(tijdstipTekstElement);
+						assert.equal(tijdstipTekstElement.textContent, tijdstip);
+
+						done();
+					});
+				});
+
+				test('wanneer er geen versie gekend is, zal deze niet getoond worden', (done) => {
+					const element = fixture('vo-buildversie-fixture');
+					let tijdstip = 'vandaag';
+					element.tijdstip = tijdstip;
+					flush(() => {
+						const versieElement = element.shadowRoot.querySelector('#versie_container');
+						const tijdstipElement = element.shadowRoot.querySelector('#tijdstip_container');
+						const tijdstipLabelElement = tijdstipElement.querySelector('#tijdstip_label');
+						const tijdstipTekstElement = tijdstipElement.querySelector('#tijdstip');
+						
+						should.not.exist(versieElement);
+
+						should.exist(tijdstipElement);
+						should.exist(tijdstipLabelElement);
+						assert.equal(tijdstipLabelElement.textContent, 'Tijdstip: ');
+						should.exist(tijdstipTekstElement);
+						assert.equal(tijdstipTekstElement.textContent, tijdstip);
+
+						done();
+					});
+				});
+
+				test('wanneer er geen tijdstip gekend is, zal deze niet getoond worden', (done) => {
+					const element = fixture('vo-buildversie-fixture');
+					let versie = '1.0.0';
+					element.versie = versie;
+					flush(() => {
+						const versieElement = element.shadowRoot.querySelector('#versie_container');
+						const versieLabelElement = versieElement.querySelector('#versie_label');
+						const versieTekstElement = versieElement.querySelector('#versie');
+						const tijdstipElement = element.shadowRoot.querySelector('#tijdstip_container');
+						
+						should.exist(versieElement);
+						should.exist(versieLabelElement);
+						assert.equal(versieLabelElement.textContent, 'Versie: ');
+						should.exist(versieTekstElement);
+						assert.equal(versieTekstElement.textContent, versie);
+
+						should.not.exist(tijdstipElement);
+
+						done();
+					});
+				});
+
+				test('wanneer er geen versie en tijdstip gekend is, zal niets getoond worden', (done) => {
+					const element = fixture('vo-buildversie-fixture');
+					flush(() => {
+						const versieElement = element.shadowRoot.querySelector('#versie_container');
+						const tijdstipElement = element.shadowRoot.querySelector('#tijdstip_container');
+
+						should.not.exist(versieElement);
+						should.not.exist(tijdstipElement);
+
+						done();
+					});
+				});
+
+				test('wanneer er de versie en het tijdstip leeg zijn, zal niets getoond worden', (done) => {
+					const element = fixture('vo-buildversie-fixture');
+					let versie = '';
+					let tijdstip = '';
+					element.versie = versie;
+					element.tijdstip = tijdstip;
+					flush(() => {
+						const versieElement = element.shadowRoot.querySelector('#versie_container');
+						const tijdstipElement = element.shadowRoot.querySelector('#tijdstip_container');
+
+						should.not.exist(versieElement);
+						should.not.exist(tijdstipElement);
+
+						done();
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

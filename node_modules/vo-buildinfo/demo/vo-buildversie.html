@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+		<title>vo-footer demo</title>
+		
+		<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<script type="module">
+			import '../node_modules/@polymer/iron-demo-helpers/demo-snippet.js';
+			import '../vo-buildversie.js';
+		</script>
+	</head>
+	
+	<body unresolved>
+		<div class="vertical-section-container centered">
+			<h3>Basis vo-buildinfo demo</h3>
+			<demo-snippet class="centered-demo">
+				<template>
+					<vo-buildversie versie="1.0.0" tijdstip="2018-10-26T07:13:43.758Z"></vo-buildversie>
+				</template>
+			</demo-snippet>
+		</div>
+		
+		<div class="vertical-section-container centered">
+			<h3>Basis vo-buildinfo zonder tijdstip demo</h3>
+			<demo-snippet class="centered-demo">
+				<template>
+					<vo-buildversie versie="1.0.0"></vo-buildversie>
+				</template>
+			</demo-snippet>
+		</div>
+		
+		<div class="vertical-section-container centered">
+			<h3>Basis vo-buildinfo zonder versie demo</h3>
+			<demo-snippet class="centered-demo">
+				<template>
+					<vo-buildversie tijdstip="2018-10-26T07:13:43.758Z"></vo-buildversie>
+				</template>
+			</demo-snippet>
+		</div>
+		
+		<div class="vertical-section-container centered">
+			<h3>Basis vo-buildinfo zonder versie en tijdstip demo</h3>
+			<demo-snippet class="centered-demo">
+				<template>
+					<vo-buildversie></vo-buildversie>
+				</template>
+			</demo-snippet>
+		</div>
+		
+		<div class="vertical-section-container centered">
+			<h3>Basis vo-buildinfo met lege versie en leeg tijdstip demo</h3>
+			<demo-snippet class="centered-demo">
+				<template>
+					<vo-buildversie versie="" tijdstip=""></vo-buildversie>
+				</template>
+			</demo-snippet>
+		</div>
+	</body>
+</html>

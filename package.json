@@ -44,6 +44,7 @@
     "vo-font": "milieuinfo/webcomponent-vo-font",
     "vo-footer": "milieuinfo/webcomponent-vo-footer",
     "vo-header": "milieuinfo/webcomponent-vo-header",
+    "vo-buildinfo": "milieuinfo/webcomponent-vo-buildinfo",
     "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo"
   }
 }

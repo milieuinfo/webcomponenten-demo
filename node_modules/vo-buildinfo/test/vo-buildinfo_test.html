@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+		<title>vo-buildinfo test</title>
+
+		<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<script src="../node_modules/wct-browser-legacy/browser.js"></script>
+	</head>
+	<body>
+
+		<test-fixture id="vo-buildinfo-fixture">
+			<template>
+				<vo-buildinfo></vo-buildinfo>
+			</template>
+		</test-fixture>
+
+		<script type="module">
+			import '../vo-buildinfo';
+
+			suite('vo-buildinfo', () => {
+				const sandbox = sinon.sandbox.create();
+				const should = chai.should();
+
+				teardown(() => {
+		            sandbox.restore();
+		        });
+
+				test('de build versie zal opgehaald worden en doorgegeven worden aan de vo-buildversie component', (done) => {
+					const element = fixture('vo-buildinfo-fixture');
+					const versie = '1.0.0';
+					const tijdstip = '2018-10-23T11:14:00';
+					const buildinfo = {
+						build: {
+							version: versie, 
+							time: tijdstip
+						}
+					};
+					const fetchStub = sandbox.stub(window, 'fetch');
+					const response = new window.Response(JSON.stringify(buildinfo), {status: 200});
+					fetchStub.withArgs('/admin/info').returns(Promise.resolve(response));
+					flush(() => {
+						const buildversieElement = element.shadowRoot.querySelector('vo-buildversie');
+						should.exist(buildversieElement);
+						console.log(element);
+						console.log(buildversieElement);
+						assert.equal(buildversieElement.versie, versie);
+						assert.equal(buildversieElement.tijdstip, tijdstip);
+						done();
+					});
+				});
+
+				test('de url waar de build versie opgehaald moet worden kan geconfigureerd worden', (done) => {
+					const element = fixture('vo-buildinfo-fixture');
+					const url = 'http://www.google.be';
+					element.url = url;
+					const fetchStub = sandbox.stub(window, 'fetch').returns(Promise.resolve(''));
+					flush(() => {
+						assert(fetchStub.calledWith(url));
+						done();
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
