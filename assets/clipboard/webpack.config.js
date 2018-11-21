@@ -20,7 +20,7 @@ module.exports = {
         libraryTarget: 'umd'
     },
     module: {
-        rules: [{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }]
+        rules: [{ test: /\.js$/, exclude./node_modules/, loader: 'babel-loader' }]
     },
     plugins: production ? [new webpack.optimize.UglifyJsPlugin({
         beautify: false,

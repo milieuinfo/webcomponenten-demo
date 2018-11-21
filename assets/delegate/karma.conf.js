@@ -5,7 +5,7 @@ module.exports = function (karma) {
 
         frameworks: ['browserify', 'chai', 'sinon', 'mocha'],
 
-        files: ['src/**/*.js', 'test/**/*.js', './node_modules/phantomjs-polyfill/bind-polyfill.js'],
+        files: ['src/**/*.js', 'test/**/*.js', ./node_modules/phantomjs-polyfill/bind-polyfill.js'],
 
         preprocessors: {
             'src/**/*.js': ['browserify'],

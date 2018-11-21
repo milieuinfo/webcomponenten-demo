@@ -22,9 +22,9 @@
     "copy:webcomponent": "copyfiles -f node_modules/**/vo*.js .",
     "copy:demo": "copyfiles -f node_modules/**/demo/vo*.html ./demo",
     "replace": "npm run replace:component && npm run replace:demo && npm run replace:index",
-    "replace:component": "replace '../../node_modules' './node_modules' * --exclude='package.json,index.html'",
+    "replace:component": "replace '../../node_modules/' './node_modules/' * --exclude='package.json,index.html'",
     "replace:demo": "replace '../node_modules/' '../assets/' ./demo/* --exclude='package.json,index.html'",
-    "replace:index": "replace '../node_modules' './node_modules' index.html"
+    "replace:index": "replace '\"../node_modules' '\"./node_modules' ./index.html"
   },
   "publishConfig": {
     "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
