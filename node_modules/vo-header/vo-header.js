@@ -70,14 +70,14 @@ class VoHeader extends LitElement {
 					
 				#wrapper {
 					display: -ms-flexbox;
-			        display: -webkit-flex;
-			        display: flex;
+					display: -webkit-flex;
+					display: flex;
 					-ms-flex-direction: row;
-			        -webkit-flex-direction: row;
-			        flex-direction: row;
+					-webkit-flex-direction: row;
+					flex-direction: row;
 					-ms-flex-align: center;
-			        -webkit-align-items: center;
-			        align-items: center;
+					-webkit-align-items: center;
+					align-items: center;
 					padding-right: 10px;
 					box-sizing: border-box;
 				}

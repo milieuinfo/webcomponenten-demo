@@ -37,6 +37,7 @@ export default class ScopingShim {
     ast['rules'] = [];
     this._documentOwnerStyleInfo = StyleInfo.set(this._documentOwner, new StyleInfo(ast));
     this._elementsHaveApplied = false;
+    /** @type {?Object} */
     this._applyShim = null;
     /** @type {?CustomStyleInterfaceInterface} */
     this._customStyleInterface = null;
@@ -87,21 +88,23 @@ export default class ScopingShim {
     template.extends = typeExtension;
     templateMap[elementName] = template;
     let cssBuild = StyleUtil.getCssBuild(template);
-    let cssText = this._gatherStyles(template);
+    const optimalBuild = StyleUtil.isOptimalCssBuild(cssBuild);
     let info = {
       is: elementName,
       extends: typeExtension,
     };
+    let cssText = this._gatherStyles(template);
     // check if the styling has mixin definitions or uses
     this._ensure();
-    let hasMixins = !StyleUtil.elementHasBuiltCss(template) && detectMixin(cssText);
-    let ast = parse(cssText);
-    // only run the applyshim transforms if there is a mixin involved
-    if (hasMixins && nativeCssVariables && this._applyShim) {
-      this._applyShim['transformRules'](ast, elementName);
+    if (!optimalBuild) {
+      let hasMixins = !cssBuild && detectMixin(cssText);
+      let ast = parse(cssText);
+      // only run the applyshim transforms if there is a mixin involved
+      if (hasMixins && nativeCssVariables && this._applyShim) {
+        this._applyShim['transformRules'](ast, elementName);
+      }
+      template['_styleAst'] = ast;
     }
-    template['_styleAst'] = ast;
-
     let ownPropertyNames = [];
     if (!nativeCssVariables) {
       ownPropertyNames = StyleProperties.decorateStyles(template['_styleAst']);
@@ -109,7 +112,7 @@ export default class ScopingShim {
     if (!ownPropertyNames.length || nativeCssVariables) {
       let root = nativeShadow ? template.content : null;
       let placeholder = getStylePlaceholder(elementName);
-      let style = this._generateStaticStyle(info, template['_styleAst'], root, placeholder, cssBuild);
+      let style = this._generateStaticStyle(info, template['_styleAst'], root, placeholder, cssBuild, optimalBuild ? cssText : '');
       template._style = style;
     }
     template._ownPropertyNames = ownPropertyNames;
@@ -132,12 +135,15 @@ export default class ScopingShim {
    * @param {DocumentFragment} shadowroot
    * @param {Node} placeholder
    * @param {string} cssBuild
+   * @param {string=} cssText
+   * @return {?HTMLStyleElement}
    */
-  _generateStaticStyle(info, rules, shadowroot, placeholder, cssBuild) {
-    let cssText = StyleTransformer.elementStyles(info, rules, null, cssBuild);
+  _generateStaticStyle(info, rules, shadowroot, placeholder, cssBuild, cssText) {
+    cssText = StyleTransformer.elementStyles(info, rules, null, cssBuild, cssText);
     if (cssText.length) {
       return StyleUtil.applyCss(cssText, info.is, shadowroot, placeholder);
     }
+    return null;
   }
   _prepareHost(host) {
     let {is, typeExtension} = StyleUtil.getIsExtends(host);
@@ -169,7 +175,7 @@ export default class ScopingShim {
     if (this._applyShim) {
       return;
     } else if (window.ShadyCSS && window.ShadyCSS.ApplyShim) {
-      this._applyShim = window.ShadyCSS.ApplyShim;
+      this._applyShim = /** @type {!Object} */ (window.ShadyCSS.ApplyShim);
       this._applyShim['invalidCallback'] = ApplyShimUtils.invalidate;
     }
   }
@@ -206,17 +212,21 @@ export default class ScopingShim {
     if (!this._customStyleInterface['enqueued']) {
       return;
     }
+    // bail if custom styles are built optimally
+    if (StyleUtil.isOptimalCssBuild(this._documentOwnerStyleInfo.cssBuild)) {
+      return;
+    }
     if (!nativeCssVariables) {
       this._updateProperties(this._documentOwner, this._documentOwnerStyleInfo);
       this._applyCustomStyles(customStyles);
-    } else {
+      if (this._elementsHaveApplied) {
+        // if custom elements have upgraded and there are no native css variables, we must recalculate the whole tree
+        this.styleDocument();
+      }
+    } else if (!this._documentOwnerStyleInfo.cssBuild) {
       this._revalidateCustomStyleApplyShim(customStyles);
     }
     this._customStyleInterface['enqueued'] = false;
-    // if custom elements have upgraded and there are no native css variables, we must recalculate the whole tree
-    if (this._elementsHaveApplied && !nativeCssVariables) {
-      this.styleDocument();
-    }
   }
   /**
    * Apply styles for the given element
@@ -374,7 +384,8 @@ export default class ScopingShim {
       this.styleElement(host, properties);
     }
     // process the shadowdom children of `host`
-    let shadowChildren = root && (root.children || root.childNodes);
+    let shadowChildren =
+        root && (/** @type {!ParentNode} */ (root).children || root.childNodes);
     if (shadowChildren) {
       for (let i = 0; i < shadowChildren.length; i++) {
         let c = /** @type {!HTMLElement} */(shadowChildren[i]);
@@ -411,11 +422,14 @@ export default class ScopingShim {
     }
   }
   transformCustomStyleForDocument(style) {
-    let ast = StyleUtil.rulesForStyle(style);
     const cssBuild = StyleUtil.getCssBuild(style);
     if (cssBuild !== this._documentOwnerStyleInfo.cssBuild) {
       this._documentOwnerStyleInfo.cssBuild = cssBuild;
     }
+    if (StyleUtil.isOptimalCssBuild(cssBuild)) {
+      return;
+    }
+    let ast = StyleUtil.rulesForStyle(style);
     StyleUtil.forEachRule(ast, (rule) => {
       if (nativeShadow) {
         StyleTransformer.normalizeRootSelector(rule);
@@ -521,6 +535,7 @@ export default class ScopingShim {
 }
 
 /* exports */
+/* eslint-disable no-self-assign */
 ScopingShim.prototype['flush'] = ScopingShim.prototype.flush;
 ScopingShim.prototype['prepareTemplate'] = ScopingShim.prototype.prepareTemplate;
 ScopingShim.prototype['styleElement'] = ScopingShim.prototype.styleElement;
@@ -537,6 +552,7 @@ ScopingShim.prototype['scopeNode'] = ScopingShim.prototype.scopeNode;
 ScopingShim.prototype['unscopeNode'] = ScopingShim.prototype.unscopeNode;
 ScopingShim.prototype['scopeForNode'] = ScopingShim.prototype.scopeForNode;
 ScopingShim.prototype['currentScopeForNode'] = ScopingShim.prototype.currentScopeForNode;
+/* eslint-enable no-self-assign */
 Object.defineProperties(ScopingShim.prototype, {
   'nativeShadow': {
     get() {
