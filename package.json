@@ -14,7 +14,7 @@
   "scripts": {
     "clean": "rm -rf build node_modules build bower_components etc node",
     "build": "npm run clean && npm install && npm run build:demo",
-    "build:demo": "npm run copy && polymer analyze *.js > analysis.json && npm run delete && npm run replace",
+    "build:demo": "npm run copy && polymer analyze ./*.js > analysis.json && npm run delete && npm run replace",
     "delete": "npm run delete:node_modules && npm run delete:vodomg-demo",
     "delete:node_modules": "del 'node_modules/**/readme.md'",
     "delete:vodomg-demo": "del 'vodomg-demo.js'",
