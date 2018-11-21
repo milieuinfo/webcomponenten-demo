@@ -13,12 +13,17 @@
   },
   "scripts": {
     "clean": "rm -rf build node_modules build bower_components etc node",
-    "build": "npm run build:demo",
-    "build:demo": "npm run copy && polymer analyze *.js > analysis.json",
-    "delete": "del 'node_modules/**/readme.md'",
+    "build": "npm run clean && npm install && npm run build:demo",
+    "build:demo": "npm run copy && polymer analyze *.js > analysis.json && npm run delete && npm run replace",
+    "delete": "npm run delete:node_modules && npm run delete:vodomg-demo",
+    "delete:node_modules": "del 'node_modules/**/readme.md'",
+    "delete:vodomg-demo": "del 'vodomg-demo.js'",
     "copy": "npm run copy:webcomponent && npm run copy:demo",
     "copy:webcomponent": "copyfiles -f node_modules/**/vo*.js .",
-    "copy:demo": "copyfiles -f node_modules/**/demo/vo*.html ./demo"
+    "copy:demo": "copyfiles -f node_modules/**/demo/vo*.html ./demo",
+    "replace": "npm run replace:component && npm run replace:demo",
+    "replace:component": "replace '../../node_modules' './node_modules' * --exclude='package.json'",
+    "replace:demo": "replace '../node_modules/' '../assets/' ./demo/* --exclude='package.json'"
   },
   "publishConfig": {
     "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
@@ -34,18 +39,19 @@
   },
   "main": "index.html",
   "devDependencies": {
-    "copyfiles": "^2.1.0",
-    "del-cli": "^1.1.0"
+    "copyfiles": "2.1.0",
+    "del-cli": "1.1.0",
+    "replace": "1.0.0"
   },
   "dependencies": {
     "@polymer/iron-component-page": "4.0.1",
     "@polymer/iron-demo-helpers": "3.0.2",
     "@webcomponents/webcomponentsjs": "2.1.3",
+    "vo-buildinfo": "milieuinfo/webcomponent-vo-buildinfo",
     "vo-font": "milieuinfo/webcomponent-vo-font",
     "vo-footer": "milieuinfo/webcomponent-vo-footer",
     "vo-header": "milieuinfo/webcomponent-vo-header",
-    "vo-buildinfo": "milieuinfo/webcomponent-vo-buildinfo",
-    "vodomg-litelement": "milieuinfo/webcomponent-vodomg-litelement",
-    "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo"
+    "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo",
+    "vodomg-litelement": "milieuinfo/webcomponent-vodomg-litelement"
   }
 }

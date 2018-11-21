@@ -1,10 +1,14 @@
 # webcomponenten demo
 
-Een overzicht van de webcomponenten van de Vlaamse overheid inclusief demo en documentatie.
+Een overzicht van de webcomponenten van de Vlaamse overheid inclusief demo en documentatie, beschikbaar via: https://milieuinfo.github.io/webcomponenten-demo.
 
-### Documentatie en demo
+### Component toevoegen
 
-[Publicatie van documentatie en demo](https://milieuinfo.github.io/webcomponenten-demo)
+Om een component toe te voegen aan de webcomponenten demo, volstaat het om de component toe te voegen aan de package.json als dependency. Daarna moet onderstaand commando uitgevoerd worden en kunnen de wijzigingen gecommit worden.
+
+```
+npm run build
+```
 
 ## Ontwikkelaars
 
