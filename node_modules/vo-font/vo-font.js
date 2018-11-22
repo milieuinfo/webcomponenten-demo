@@ -17,8 +17,8 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 300;" +
-				"src: url('/fonts/flandersart/FlandersArtSans-Light.eot');" +
-				"src: local('☺'), url('/fonts/flandersart/FlandersArtSans-Light.eot?#iefix') format('embedded-opentype'), url('/fonts/flandersart/FlandersArtSans-Light.woff') format('woff'), url('/fonts/flandersart/FlandersArtSans-Light.ttf') format('truetype'), url('/fonts/flandersart/FlandersArtSans-Light.svg#222d09d62eecf7d55dbbce60a3976b34') format('svg');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Light.eot');" +
+				"src: local('☺'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Light.eot?#iefix') format('embedded-opentype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Light.woff') format('woff'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Light.ttf') format('truetype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Light.svg#222d09d62eecf7d55dbbce60a3976b34') format('svg');" +
 			"}" +
 			"" +
 			"@font-face {" +
@@ -26,8 +26,8 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 400;" +
-				"src: url('/fonts/flandersart/FlandersArtSans-Regular.eot');" +
-				"src: local('☺'), url('/fonts/flandersart/FlandersArtSans-Regular.eot?#iefix') format('embedded-opentype'), url('/fonts/flandersart/FlandersArtSans-Regular.woff') format('woff'), url('/fonts/flandersart/FlandersArtSans-Regular.ttf') format('truetype'), url('/fonts/flandersart/FlandersArtSans-Regular.svg#a781d42e8795b6c33f49152946c2a117') format('svg');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Regular.eot');" +
+				"src: local('☺'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Regular.woff') format('woff'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Regular.ttf') format('truetype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Regular.svg#a781d42e8795b6c33f49152946c2a117') format('svg');" +
 			"}" +
 			"" +
 			"@font-face {" +
@@ -35,8 +35,8 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 500;" +
-				"src: url('/fonts/flandersart/FlandersArtSans-Medium.eot');" +
-				"src: local('☺'), url('/fonts/flandersart/FlandersArtSans-Medium.eot?#iefix') format('embedded-opentype'), url('/fonts/flandersart/FlandersArtSans-Medium.woff') format('woff'), url('/fonts/flandersart/FlandersArtSans-Medium.ttf') format('truetype'), url('/fonts/flandersart/FlandersArtSans-Medium.svg#a00e3e9aae2b74f48ebe54da93879a7b') format('svg');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Medium.eot');" +
+				"src: local('☺'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Medium.eot?#iefix') format('embedded-opentype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Medium.woff') format('woff'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Medium.ttf') format('truetype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Medium.svg#a00e3e9aae2b74f48ebe54da93879a7b') format('svg');" +
 			"}" +
 			"" +
 			"@font-face {" +
@@ -44,8 +44,8 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 700;" +
-				"src: url('/fonts/flandersart/FlandersArtSans-Bold.eot');" +
-				"src: local('☺'), url('/fonts/flandersart/FlandersArtSans-Bold.eot?#iefix') format('embedded-opentype'), url('/fonts/flandersart/FlandersArtSans-Bold.woff') format('woff'), url('/fonts/flandersart/FlandersArtSans-Bold.ttf') format('truetype'), url('/fonts/flandersart/FlandersArtSans-Bold.svg#ccf2aa22c7445e01b2080bbe048caaae') format('svg');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Bold.eot');" +
+				"src: local('☺'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Bold.eot?#iefix') format('embedded-opentype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Bold.woff') format('woff'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Bold.ttf') format('truetype'), url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSans-Bold.svg#ccf2aa22c7445e01b2080bbe048caaae') format('svg');" +
 			"}" +
 			"" +
 			"@font-face {" +
@@ -53,7 +53,7 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 300;" +
-				"src: url('/fonts/flandersart/FlandersArtSerif-Light.otf');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSerif-Light.otf');" +
 			"}" +
 			"" +
 			"@font-face {" +
@@ -61,7 +61,7 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 400;" +
-				"src: url('/fonts/flandersart/FlandersArtSerif-Regular.otf');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSerif-Regular.otf');" +
 			"}" +
 			"" +
 			"" +
@@ -70,7 +70,7 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 500;" +
-				"src: url('/fonts/flandersart/FlandersArtSerif-Medium.otf');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSerif-Medium.otf');" +
 			"}" +
 			"" +
 			"@font-face {" +
@@ -78,7 +78,7 @@ class VoFont extends LitElement {
 				"font-display: swap;" +
 				"font-style: normal;" +
 				"font-weight: 700;" +
-				"src: url('/fonts/flandersart/FlandersArtSerif-Bold.otf');" +
+				"src: url('https://cdn.milieuinfo.be/vo-font/LATEST/fonts/flandersart/FlandersArtSerif-Bold.otf');" +
 			"}" +
 			"" +
 			".vo-font, .vo-font-sans {" +
