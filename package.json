@@ -53,6 +53,7 @@
     "vo-footer": "milieuinfo/webcomponent-vo-footer",
     "vo-header": "milieuinfo/webcomponent-vo-header",
     "vo-template": "milieuinfo/webcomponent-vo-template",
+    "vo-upload": "milieuinfo/webcomponent-vo-upload",
     "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo",
     "vodomg-litelement": "milieuinfo/webcomponent-vodomg-litelement"
   }

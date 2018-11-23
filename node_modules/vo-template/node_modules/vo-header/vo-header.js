@@ -5,6 +5,14 @@ import '../../node_modules/vo-merklogo/vo-merklogo.js';
  * `vo-header`
  * De standaard header voor websites en applicaties van de Vlaamse overheid
  *
+ * ### Styling
+ * 
+ * De volgende properties en mixins zijn beschikbaar voor stijl:
+ * 
+ * Custom property | Description | Default
+ * ----------------|-------------|----------
+ * `--vo-header-wrapper-style` | de wrapper mixin | `{}`
+ *
  * @customElement
  * @polymer
  * @demo demo/vo-header.html
@@ -55,12 +63,21 @@ class VoHeader extends LitElement {
 				}
 					
 				.spacer {
-					@apply --layout-flex-10;
+					-ms-flex: 10;
+    				-webkit-flex: 10;
+    				flex: 10;
 				}
 					
 				#wrapper {
-					@apply --layout-horizontal;
-					@apply --layout-center;
+					display: -ms-flexbox;
+			        display: -webkit-flex;
+			        display: flex;
+					-ms-flex-direction: row;
+			        -webkit-flex-direction: row;
+			        flex-direction: row;
+					-ms-flex-align: center;
+			        -webkit-align-items: center;
+			        align-items: center;
 					padding-right: 10px;
 					box-sizing: border-box;
 				}
