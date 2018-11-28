@@ -5432,7 +5432,7 @@
       "tagname": "vo-template"
     },
     {
-      "description": "`vo-upload`\nDe upload component voor gebruik in websites en applicaties van de Vlaamse overheid\n\n### Events\n\nDe volgende events zijn beschikbaar:\n\nEvent | Uitleg | Detail object\n------|-------------|--------------\n`vo-upload-versturen` | Wordt afgevuurd vlak voordat het bestand verstuurd wordt naar de url. | { bestand }\n`vo-upload-succes` | Wordt afgevuurd wanneer een bestand succesvol werd opgeladen. | { bestand, response }\n`vo-upload-fout` | Wordt afgevuurd wanneer een bestand niet kon opgeladen worden vanwege een fout. | { bestand, fout }",
+      "description": "`vo-upload`\nDe upload component voor gebruik in websites en applicaties van de Vlaamse overheid\n\n### Events\n\nDe volgende events zijn beschikbaar:\n\nEvent | Uitleg | Detail object\n------|-------------|--------------\n`vo-upload-bestand-toegevoegd` | Wordt afgevuurd wanneer er een bestand werd toegevoegd. | { bestand }\n`vo-upload-bestand-verwijderd` | Wordt afgevuurd wanneer er een bestand werd verwijderd. | { bestand }\n`vo-upload-versturen` | Wordt afgevuurd vlak voordat het bestand verstuurd wordt naar de url. | { bestand }\n`vo-upload-succes` | Wordt afgevuurd wanneer een bestand succesvol werd opgeladen. | { bestand, response }\n`vo-upload-fout` | Wordt afgevuurd wanneer een bestand niet kon opgeladen worden vanwege een fout. | { bestand, fout }",
       "summary": "",
       "path": "vo-upload.js",
       "properties": [
@@ -5489,12 +5489,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 51,
               "column": 12
             },
             "end": {
-              "line": 41,
-              "column": 23
+              "line": 53,
+              "column": 13
             }
           },
           "metadata": {
@@ -5510,12 +5510,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 57,
               "column": 12
             },
             "end": {
-              "line": 45,
-              "column": 41
+              "line": 59,
+              "column": 13
             }
           },
           "metadata": {
@@ -5531,12 +5531,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 49,
+              "line": 63,
               "column": 12
             },
             "end": {
-              "line": 49,
-              "column": 41
+              "line": 65,
+              "column": 13
             }
           },
           "metadata": {
@@ -5552,12 +5552,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 69,
               "column": 12
             },
             "end": {
-              "line": 53,
-              "column": 37
+              "line": 71,
+              "column": 13
             }
           },
           "metadata": {
@@ -5573,17 +5573,59 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 75,
               "column": 12
             },
             "end": {
-              "line": 57,
-              "column": 25
+              "line": 77,
+              "column": 13
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "maximum-aantal-bestanden",
+          "type": "number | null | undefined",
+          "description": "Het maximum aantal bestanden dat men mag uploaden.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 81,
+              "column": 12
+            },
+            "end": {
+              "line": 83,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "auto-upload",
+          "type": "boolean | null | undefined",
+          "description": "Bepaalt of er automatisch geupload moet worden.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 87,
+              "column": 12
+            },
+            "end": {
+              "line": 89,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
             }
           }
         }
@@ -6024,11 +6066,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 98,
               "column": 4
             },
             "end": {
-              "line": 86,
+              "line": 131,
               "column": 5
             }
           },
@@ -6044,11 +6086,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 188,
               "column": 4
             },
             "end": {
-              "line": 137,
+              "line": 233,
               "column": 5
             }
           },
@@ -6060,49 +6102,55 @@
         },
         {
           "name": "_dropzoneMaxFilesize",
-          "description": "",
+          "description": "Berekent de maximum bestand grootte.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 88,
+              "line": 138,
               "column": 4
             },
             "end": {
-              "line": 90,
+              "line": 140,
               "column": 5
             }
           },
           "metadata": {},
-          "params": []
+          "params": [],
+          "return": {
+            "type": "Number"
+          }
         },
         {
           "name": "_dropzoneAcceptedFiles",
-          "description": "",
+          "description": "Genereert een array die de toegelaten bestand types bepaalt.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 147,
               "column": 4
             },
             "end": {
-              "line": 98,
+              "line": 153,
               "column": 5
             }
           },
           "metadata": {},
-          "params": []
+          "params": [],
+          "return": {
+            "type": "Array"
+          }
         },
         {
           "name": "_fireEvent",
-          "description": "",
+          "description": "Gooit een vo-upload event.",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 100,
+              "line": 160,
               "column": 4
             },
             "end": {
-              "line": 102,
+              "line": 162,
               "column": 5
             }
           },
@@ -6115,6 +6163,26 @@
               "name": "data"
             }
           ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "upload",
+          "description": "Upload alle bestanden die de gebruiker geselecteerd heeft.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 179,
+              "column": 4
+            },
+            "end": {
+              "line": 181,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -6287,11 +6355,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 104,
+              "line": 164,
               "column": 4
             },
             "end": {
-              "line": 111,
+              "line": 172,
               "column": 5
             }
           },
@@ -6312,11 +6380,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 21,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 138,
+          "line": 234,
           "column": 1
         }
       },
@@ -6329,12 +6397,12 @@
           "description": "URL waarnaar geupload moet worden.",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 51,
               "column": 12
             },
             "end": {
-              "line": 41,
-              "column": 23
+              "line": 53,
+              "column": 13
             }
           },
           "metadata": {},
@@ -6345,12 +6413,12 @@
           "description": "Een lijst van toegelaten extensies.",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 57,
               "column": 12
             },
             "end": {
-              "line": 45,
-              "column": 41
+              "line": 59,
+              "column": 13
             }
           },
           "metadata": {},
@@ -6361,12 +6429,12 @@
           "description": "Een lijst van toegelaten mimetypes.",
           "sourceRange": {
             "start": {
-              "line": 49,
+              "line": 63,
               "column": 12
             },
             "end": {
-              "line": 49,
-              "column": 41
+              "line": 65,
+              "column": 13
             }
           },
           "metadata": {},
@@ -6377,12 +6445,12 @@
           "description": "De maximum grootte van een bestand in bytes.",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 69,
               "column": 12
             },
             "end": {
-              "line": 53,
-              "column": 37
+              "line": 71,
+              "column": 13
             }
           },
           "metadata": {},
@@ -6393,16 +6461,48 @@
           "description": "Het veld in de multipart/form-data body waarin het bestand gestoken moet worden.",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 75,
               "column": 12
             },
             "end": {
-              "line": 57,
-              "column": 25
+              "line": 77,
+              "column": 13
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
+        },
+        {
+          "name": "maximum-aantal-bestanden",
+          "description": "Het maximum aantal bestanden dat men mag uploaden.",
+          "sourceRange": {
+            "start": {
+              "line": 81,
+              "column": 12
+            },
+            "end": {
+              "line": 83,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "auto-upload",
+          "description": "Bepaalt of er automatisch geupload moet worden.",
+          "sourceRange": {
+            "start": {
+              "line": 87,
+              "column": 12
+            },
+            "end": {
+              "line": 89,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [],
