@@ -19,7 +19,6 @@
     "delete": "npm run delete:node_modules && npm run delete:vodomg-demo",
     "delete:node_modules": "del 'node_modules/**/readme.md'",
     "delete:vodomg-demo": "del 'vodomg-demo.js'",
-    "delete:analyzsis": "del 'analysis.json",
     "copy": "npm run copy:webcomponent && npm run copy:demo",
     "copy:webcomponent": "copyfiles -f node_modules/**/vo*.js .",
     "copy:demo": "copyfiles -f node_modules/**/demo/vo*.html ./demo",
