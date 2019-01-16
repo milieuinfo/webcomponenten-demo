@@ -4735,7 +4735,7 @@
       "tagname": "vo-merklogo"
     },
     {
-      "description": "`vo-paginatie`\nDe standaard paginatie component voor websites en applicaties van de Vlaamse overheid\n\n### Events\n\nDe volgende events zijn beschikbaar:\n\nEvent | Uitleg | Detail object\n------|--------|---------------\n`vo-paginatie-haal-pagina-op` | wordt afgevuurd wanneer er een nieuwe pagina moet worden opgehaald. | `paginanummer`",
+      "description": "`vo-paginatie`\nDe standaard paginatie component voor websites en applicaties van de Vlaamse overheid\n\n### Events\n\nDe volgende events zijn beschikbaar:\n\nEvent | Uitleg | Detail object\n------|--------|---------------\n`vo-paginatie-paginanummer-changed` | wordt afgevuurd wanneer er een nieuwe pagina moet worden opgehaald. | `paginanummer`",
       "summary": "",
       "path": "vo-paginatie.js",
       "properties": [
