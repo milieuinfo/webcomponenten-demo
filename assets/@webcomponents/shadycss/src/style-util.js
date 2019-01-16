@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 'use strict';
 
-import { nativeShadow, nativeCssVariables } from './style-settings.js';
+import { nativeShadow, nativeCssVariables, cssBuild } from './style-settings.js';
 import { parse, stringify, types, StyleNode } from './css-parse.js'; // eslint-disable-line no-unused-vars
 import { MEDIA_MATCH } from './common-regex.js';
 import { processUnscopedStyle, isUnscopedStyle } from './unscoped-style-handler.js';
@@ -234,6 +234,11 @@ export function setElementClassRaw(element, value) {
 }
 
 /**
+ * @type {function(*):*}
+ */
+export const wrap = window['ShadyDOM'] && window['ShadyDOM']['wrap'] || (node => node);
+
+/**
  * @param {Element | {is: string, extends: string}} element
  * @return {{is: string, typeExtension: string}}
  */
@@ -322,6 +327,10 @@ const CSS_BUILD_ATTR = 'css-build';
  * @return {string} Can be "", "shady", or "shadow"
  */
 export function getCssBuild(element) {
+  if (cssBuild !== undefined) {
+    return (/** @type {string} */cssBuild
+    );
+  }
   if (element.__cssBuild === undefined) {
     // try attribute first, as it is the common case
     const attrValue = element.getAttribute(CSS_BUILD_ATTR);
@@ -366,7 +375,8 @@ export function elementHasBuiltCss(element) {
  * @return {string}
  */
 export function getBuildComment(element) {
-  const buildComment = element.localName === 'template' ? element.content.firstChild : element.firstChild;
+  const buildComment = element.localName === 'template' ?
+  /** @type {!HTMLTemplateElement} */element.content.firstChild : element.firstChild;
   if (buildComment instanceof Comment) {
     const commentParts = buildComment.textContent.trim().split(':');
     if (commentParts[0] === CSS_BUILD_ATTR) {
@@ -377,9 +387,24 @@ export function getBuildComment(element) {
 }
 
 /**
+ * Check if the css build status is optimal, and do no unneeded work.
+ *
+ * @param {string=} cssBuild CSS build status
+ * @return {boolean} css build is optimal or not
+ */
+export function isOptimalCssBuild(cssBuild = '') {
+  // CSS custom property shim always requires work
+  if (cssBuild === '' || !nativeCssVariables) {
+    return false;
+  }
+  return nativeShadow ? cssBuild === 'shadow' : cssBuild === 'shady';
+}
+
+/**
  * @param {!HTMLElement} element
  */
 function removeBuildComment(element) {
-  const buildComment = element.localName === 'template' ? element.content.firstChild : element.firstChild;
+  const buildComment = element.localName === 'template' ?
+  /** @type {!HTMLTemplateElement} */element.content.firstChild : element.firstChild;
   buildComment.parentNode.removeChild(buildComment);
 }

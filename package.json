@@ -13,8 +13,9 @@
   },
   "scripts": {
     "clean": "rm -rf build node_modules build bower_components etc node",
-    "build": "npm run clean && npm install && npm run build:demo",
+    "build": " npm run build:empathy && npm run clean && npm install && npm run build:demo",
     "build:demo": "npm run copy && npm run delete && npm run analyze && npm run replace",
+    "build:empathy": "empathy install -a assets --only @polymer/iron-component-page @polymer/iron-demo-helpers @webcomponents/webcomponentsjs",
     "analyze": "polymer analyze ./vo*.js > analysis.json",
     "delete": "npm run delete:node_modules && npm run delete:vodomg-demo",
     "delete:node_modules": "del 'node_modules/**/readme.md'",
@@ -42,7 +43,8 @@
   "devDependencies": {
     "copyfiles": "2.1.0",
     "del-cli": "1.1.0",
-    "replace": "1.0.0"
+    "replace": "1.0.0",
+    "@0xcda7a/empathy": "0.0.9"
   },
   "dependencies": {
     "@polymer/iron-component-page": "4.0.1",

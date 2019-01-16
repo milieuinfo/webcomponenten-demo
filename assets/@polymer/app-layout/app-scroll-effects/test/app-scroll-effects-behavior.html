@@ -14,8 +14,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <title>test for app-scroll-effects-behavior</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <script src=".././node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-  <script src=".././node_modules/wct-browser-legacy/browser.js"></script>
+  <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script src="../../node_modules/wct-browser-legacy/browser.js"></script>
 
   <style>
     body {
@@ -218,6 +218,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             {
               y: 50,
               callback: function() {
+                assert.isFalse(container.thresholdTriggered);
+                done();
+              }
+            }
+          ]);
+        });
+      });
+
+      test('reset threshold-triggered on attached (#570)', function(done) {
+        flush(function() {
+          var parent = container.parentElement;
+          assert.isUndefined(container.thresholdTriggered);
+          assert.equal(container.threshold, 0);
+          container.threshold = 100;
+
+          scrollTestHelper(container.scrollTarget, [
+            {
+              y: 100,
+              callback: function() {
+                assert.isTrue(container.thresholdTriggered);
+                parent.removeChild(container);
+                assert.isTrue(container.thresholdTriggered);
+              }
+            },
+            {
+              y: 0,
+              callback: function() {
+                assert.isTrue(container.thresholdTriggered);
+                parent.appendChild(container);
                 assert.isFalse(container.thresholdTriggered);
                 done();
               }

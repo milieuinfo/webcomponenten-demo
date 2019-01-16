@@ -1,8 +1,8 @@
 {
   "_from": "@polymer/paper-icon-button@^3.0.0-pre.26",
-  "_id": "@polymer/paper-icon-button@3.0.1",
+  "_id": "@polymer/paper-icon-button@3.0.2",
   "_inBundle": false,
-  "_integrity": "sha1-SvcSnILenUoK1Z1D4dPY7JNBT78=",
+  "_integrity": "sha1-oSVPqtwsjdE1zhrjO8wWGpTDH2U=",
   "_location": "/@polymer/paper-icon-button",
   "_phantomChildren": {},
   "_requested": {
@@ -19,10 +19,10 @@
   "_requiredBy": [
     "/@polymer/iron-component-page"
   ],
-  "_resolved": "http://artifactory-pr.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/@polymer/paper-icon-button/-/paper-icon-button-3.0.1.tgz",
-  "_shasum": "4af7129c82de9d4a0ad59d43e1d3d8ec93414fbf",
+  "_resolved": "http://artifactory-pr.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/@polymer/paper-icon-button/-/paper-icon-button-3.0.2.tgz",
+  "_shasum": "a1254faadc2c8dd135ce1ae33bcc161a94c31f65",
   "_spec": "@polymer/paper-icon-button@^3.0.0-pre.26",
-  "_where": "/private/var/folders/90/9cnpsq_53ng_m4n6q6zfvy5h0000gn/T/asset_stageAcuM./node_modules/@polymer/iron-component-page",
+  "_where": "/private/var/folders/90/9cnpsq_53ng_m4n6q6zfvy5h0000gn/T/asset_stagen1XipZ/node_modules/@polymer/iron-component-page",
   "author": {
     "name": "The Polymer Authors"
   },
@@ -66,5 +66,5 @@
     "generate-types": "gen-typescript-declarations --deleteExisting --outDir . --verify",
     "prepare": "npm run generate-types"
   },
-  "version": "3.0.1"
+  "version": "3.0.2"
 }

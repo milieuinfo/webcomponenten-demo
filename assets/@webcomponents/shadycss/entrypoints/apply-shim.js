@@ -17,7 +17,7 @@ import { getIsExtends, toCssText, elementHasBuiltCss } from '../src/style-util.j
 import * as ApplyShimUtils from '../src/apply-shim-utils.js';
 import { getComputedStyleValue, updateNativeProperties } from '../src/common-utils.js';
 import { CustomStyleInterfaceInterface } from '../src/custom-style-interface.js'; // eslint-disable-line no-unused-vars
-import { nativeCssVariables, nativeShadow } from '../src/style-settings.js';
+import { nativeCssVariables, nativeShadow, cssBuild } from '../src/style-settings.js';
 
 /** @const {ApplyShim} */
 const applyShim = new ApplyShim();
@@ -32,8 +32,9 @@ class ApplyShimInterface {
     if (this.customStyleInterface) {
       return;
     }
-    this.customStyleInterface = window.ShadyCSS.CustomStyleInterface;
-    if (this.customStyleInterface) {
+    if (window.ShadyCSS.CustomStyleInterface) {
+      this.customStyleInterface =
+      /** @type {!CustomStyleInterfaceInterface} */window.ShadyCSS.CustomStyleInterface;
       this.customStyleInterface['transformCallback'] = style => {
         applyShim.transformCustomStyle(style);
       };
@@ -89,7 +90,8 @@ class ApplyShimInterface {
     }
     if (element.shadowRoot) {
       this.styleElement(element);
-      let shadowChildren = element.shadowRoot.children || element.shadowRoot.childNodes;
+      let shadowChildren =
+      /** @type {!ParentNode} */element.shadowRoot.children || element.shadowRoot.childNodes;
       for (let i = 0; i < shadowChildren.length; i++) {
         this.styleSubtree( /** @type {HTMLElement} */shadowChildren[i]);
       }
@@ -160,7 +162,7 @@ if (!window.ShadyCSS || !window.ShadyCSS.ScopingShim) {
      * @param {string=} elementExtends
      */
     prepareTemplateStyles(template, elementName, elementExtends) {
-      this.prepareTemplate(template, elementName, elementExtends);
+      window.ShadyCSS.prepareTemplate(template, elementName, elementExtends);
     },
 
     /**
@@ -208,7 +210,8 @@ if (!window.ShadyCSS || !window.ShadyCSS.ScopingShim) {
     },
 
     nativeCss: nativeCssVariables,
-    nativeShadow: nativeShadow
+    nativeShadow: nativeShadow,
+    cssBuild: cssBuild
   };
 
   if (CustomStyleInterface) {

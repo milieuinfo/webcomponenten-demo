@@ -1,8 +1,8 @@
 {
   "_from": "@polymer/app-layout@^3.0.0-pre.26",
-  "_id": "@polymer/app-layout@3.0.1",
+  "_id": "@polymer/app-layout@3.0.2",
   "_inBundle": false,
-  "_integrity": "sha1-QSZqSuNYpPGAuD0dVwomCglXCjM=",
+  "_integrity": "sha1-im88h7QFY1/TVH24LbjbtsUba/k=",
   "_location": "/@polymer/app-layout",
   "_phantomChildren": {},
   "_requested": {
@@ -19,10 +19,10 @@
   "_requiredBy": [
     "/@polymer/iron-component-page"
   ],
-  "_resolved": "http://artifactory-pr.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/@polymer/app-layout/-/app-layout-3.0.1.tgz",
-  "_shasum": "41266a4ae358a4f180b83d1d570a260a09570a33",
+  "_resolved": "http://artifactory-pr.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/@polymer/app-layout/-/app-layout-3.0.2.tgz",
+  "_shasum": "8a6f3c87b405635fd3547db82db8dbb6c51b6bf9",
   "_spec": "@polymer/app-layout@^3.0.0-pre.26",
-  "_where": "/private/var/folders/90/9cnpsq_53ng_m4n6q6zfvy5h0000gn/T/asset_stageAcuM./node_modules/@polymer/iron-component-page",
+  "_where": "/private/var/folders/90/9cnpsq_53ng_m4n6q6zfvy5h0000gn/T/asset_stagen1XipZ/node_modules/@polymer/iron-component-page",
   "author": {
     "name": "The Polymer Authors"
   },
@@ -58,7 +58,7 @@
     "@polymer/paper-tabs": "^3.0.0-pre.26",
     "@polymer/test-fixture": "^4.0.1",
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "wct-browser-legacy": "^1.0.1",
+    "wct-browser-legacy": "^1.0.2",
     "webmat": "^0.2.0"
   },
   "homepage": "https://github.com/PolymerElements/app-layout",
@@ -74,5 +74,5 @@
     "generate-types": "gen-typescript-declarations --deleteExisting --outDir . --verify",
     "prepare": "npm run generate-types"
   },
-  "version": "3.0.1"
+  "version": "3.0.2"
 }
