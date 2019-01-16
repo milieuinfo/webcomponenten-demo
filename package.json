@@ -55,6 +55,7 @@
     "vo-template": "milieuinfo/webcomponent-vo-template",
     "vo-upload": "milieuinfo/webcomponent-vo-upload",
     "vodomg-demo": "milieuinfo/webcomponent-vodomg-demo",
-    "vodomg-litelement": "milieuinfo/webcomponent-vodomg-litelement"
+    "vodomg-litelement": "milieuinfo/webcomponent-vodomg-litelement",
+    "vo-paginatie": "milieuinfo/webcomponent-vo-paginatie"
   }
 }
