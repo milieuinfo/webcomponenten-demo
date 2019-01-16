@@ -14,10 +14,12 @@
   "scripts": {
     "clean": "rm -rf build node_modules build bower_components etc node",
     "build": "npm run clean && npm install && npm run build:demo",
-    "build:demo": "npm run copy && polymer analyze ./vo*.js > analysis.json && npm run delete && npm run replace",
+    "build:demo": "npm run copy && npm run delete && npm run analyze && npm run replace",
+    "analyze": "polymer analyze ./vo*.js > analysis.json",
     "delete": "npm run delete:node_modules && npm run delete:vodomg-demo",
     "delete:node_modules": "del 'node_modules/**/readme.md'",
     "delete:vodomg-demo": "del 'vodomg-demo.js'",
+    "delete:analyzsis": "del 'analysis.json",
     "copy": "npm run copy:webcomponent && npm run copy:demo",
     "copy:webcomponent": "copyfiles -f node_modules/**/vo*.js .",
     "copy:demo": "copyfiles -f node_modules/**/demo/vo*.html ./demo",
