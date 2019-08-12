@@ -54,7 +54,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "promise-polyfill": "^8.0.0",
     "rollup": "^0.60.7",
-    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-babel": "^4.0.0",
     "rollup-plugin-commonjs": "^9.1.4",
     "rollup-plugin-license": "^0.6.0",
     "run-sequence": "^2.2.1",
