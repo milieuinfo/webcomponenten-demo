@@ -43,7 +43,7 @@
   "devDependencies": {
     "copyfiles": "2.1.0",
     "del-cli": "1.1.0",
-    "replace": "1.0.0",
+    "replace": "1.1.0",
     "@0xcda7a/empathy": "0.0.9"
   },
   "dependencies": {
