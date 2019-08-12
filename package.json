@@ -49,7 +49,7 @@
   "dependencies": {
     "@polymer/iron-component-page": "4.0.1",
     "@polymer/iron-demo-helpers": "3.0.2",
-    "@webcomponents/webcomponentsjs": "2.1.3",
+    "@webcomponents/webcomponentsjs": "2.2.10",
     "vo-buildinfo": "milieuinfo/webcomponent-vo-buildinfo",
     "vo-font": "milieuinfo/webcomponent-vo-font",
     "vo-footer": "milieuinfo/webcomponent-vo-footer",
