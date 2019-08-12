@@ -80,7 +80,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-eslint": "^4.0.0",
     "gulp-if": "^2.0.1",
-    "gulp-replace": "^0.6.1",
+    "gulp-replace": "^1.0.0",
     "gulp-size": "^3.0.0",
     "gulp-vulcanize": "^7.0.0",
     "lazypipe": "^1.0.1",
