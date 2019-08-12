@@ -42,7 +42,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.4",
     "gulp-uglify": "^0.3.1",
-    "mocha": "^2.2.5",
+    "mocha": "^6.0.0",
     "yargs": "^3.26.0"
   },
   "homepage": "https://github.com/LeaVerou/prism#readme",
