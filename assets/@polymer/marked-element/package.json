@@ -34,7 +34,7 @@
   "bundleDependencies": false,
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
-    "marked": "~0.3.9"
+    "marked": "~0.7.0"
   },
   "deprecated": false,
   "description": "Element wrapper for the marked library",
