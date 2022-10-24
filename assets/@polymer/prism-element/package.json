@@ -34,7 +34,7 @@
   "bundleDependencies": false,
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
-    "prismjs": "^1.11.0"
+    "prismjs": "^1.0.0-art-external1"
   },
   "deprecated": false,
   "description": "Prism.js import and syntax highlighting",
