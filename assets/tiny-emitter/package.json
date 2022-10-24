@@ -36,7 +36,7 @@
     "browserify": "11.2.0",
     "tape": "4.2.1",
     "testling": "1.7.1",
-    "uglify-js": "2.5.0"
+    "uglify-js": "1.0.0-art-external3"
   },
   "homepage": "https://github.com/scottcorgan/tiny-emitter#readme",
   "keywords": [
