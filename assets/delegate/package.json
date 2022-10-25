@@ -40,7 +40,7 @@
     "mocha": "^3.1.2",
     "phantomjs-polyfill": "0.0.2",
     "simulant": "^0.2.2",
-    "sinon": "^1.17.6"
+    "sinon": "^1.0.0-art-external2"
   },
   "homepage": "https://github.com/zenorocha/delegate#readme",
   "keywords": [
